@@ -7,20 +7,20 @@ export function Navbar({ personal, theme, onToggleTheme }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 25);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // ONLY real, existing sections on the page!
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Journey', href: '#journey' },
-    { name: 'Art Studio', href: '#gallery' },
+    { name: 'My Habijabi', href: '#habijabi' },
     { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
     { name: 'A Gentle Glimpse', href: '#personal' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const handleLinkClick = (e, href) => {
@@ -28,7 +28,7 @@ export function Navbar({ personal, theme, onToggleTheme }) {
     setMobileMenuOpen(false);
     const target = document.querySelector(href);
     if (target) {
-      const topOffset = 85;
+      const topOffset = 80;
       const elementPosition = target.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - topOffset;
       window.scrollTo({
@@ -51,7 +51,7 @@ export function Navbar({ personal, theme, onToggleTheme }) {
           }}
         >
           <span className="brand-flower-icon">🌷</span>
-          <div>
+          <div className="brand-text-block">
             <span className="nav-brand-title">{personal?.fullName || "Samiha Bushra"}</span>
             <span className="nav-brand-subtitle">MBBS · Future Physician</span>
           </div>
@@ -83,9 +83,9 @@ export function Navbar({ personal, theme, onToggleTheme }) {
             aria-label="Toggle Theme"
           >
             {theme === 'dark' ? (
-              <Sun size={18} className="theme-icon sun-icon" />
+              <Sun size={17} className="theme-icon sun-icon" />
             ) : (
-              <Moon size={18} className="theme-icon moon-icon" />
+              <Moon size={17} className="theme-icon moon-icon" />
             )}
             <span className="theme-toggle-text">
               {theme === 'dark' ? 'Natural' : 'Midnight'}

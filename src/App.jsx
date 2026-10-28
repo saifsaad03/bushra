@@ -5,10 +5,11 @@ import { BannerSlot } from './components/BannerSlot';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { JourneyTimeline } from './components/JourneyTimeline';
-import { ArtGallery } from './components/ArtGallery';
+import { HabijabiCards } from './components/HabijabiCards';
 import { Education } from './components/Education';
 import { Skills } from './components/Skills';
 import { PersonalCorner } from './components/PersonalCorner';
+import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { AdminPanel } from './components/AdminPanel';
 import { Lock } from 'lucide-react';
@@ -47,6 +48,8 @@ export function App() {
     setPortfolio({ ...newData });
   };
 
+  const habijabiList = portfolio.habijabi || portfolio.artworks || [];
+
   return (
     <div className="portfolio-app-root">
       {/* Background Radial Texture */}
@@ -64,39 +67,48 @@ export function App() {
 
       {/* Main Content Sections */}
       <main>
-        {/* Hero Section */}
+        {/* 1. Hero Section (Transparent Portrait without background, no countdown) */}
         <Hero personal={portfolio.personal} />
 
-        {/* About Me Section */}
+        {/* 2. About Me Section (NO IMAGE, with Interests, Work Experience & Hobbies) */}
         <About
           about={portfolio.about}
           personal={portfolio.personal}
+          interests={portfolio.interests}
+          workExperience={portfolio.workExperience}
         />
 
-        {/* Redesigned Medical Journey Section (Visual 5-Year Progress Meter) */}
+        {/* 3. My Medical Journey (Visual 5-Year Progress Meter) */}
         <JourneyTimeline
           journey={portfolio.journey}
         />
 
-        {/* Glimpses of the Journey: Her Artwork Auto-Slide Carousel & Studio */}
-        <ArtGallery
-          artworks={portfolio.artworks}
+        {/* 4. "My Habijabi" — Playing Card Deck Showcase of her Artworks */}
+        <HabijabiCards
+          items={habijabiList}
           onOpenAdminUpload={() => setAdminModalOpen(true)}
         />
 
-        {/* Academic Foundations (MBBS, HSC, SSC) */}
+        {/* 5. Academic Foundations (MBBS, HSC, SSC) */}
         <Education
           education={portfolio.education}
         />
 
-        {/* Skills & Competencies (Medical, Clinical, Arts, Strengths) */}
+        {/* 6. Skills & Competencies (Medical, Clinical, Textile Arts, Languages: Bangla 100%, English 80%, Hindi 70%) */}
         <Skills
           skills={portfolio.skills}
+          languages={portfolio.languages}
         />
 
-        {/* A Gentle Glimpse (Redesigned Scrapbook Polaroids & Inspirations) */}
+        {/* 7. A Gentle Glimpse (Scrapbook Polaroids & Inspirations) */}
         <PersonalCorner
           personalCorner={portfolio.personalCorner}
+        />
+
+        {/* 8. Contact Me (Facebook, Instagram, WhatsApp, Gmail) */}
+        <ContactSection
+          socials={portfolio.socials}
+          personal={portfolio.personal}
         />
       </main>
 

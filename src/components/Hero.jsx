@@ -1,33 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowDown, Sparkles, BookHeart, GraduationCap } from 'lucide-react';
+import React from 'react';
+import { Sparkles, Heart } from 'lucide-react';
 
-export function Hero({ personal, onOpenGift }) {
-  // 4-year countdown calculation (approx 4 years from now)
-  const targetDate = new Date();
-  targetDate.setFullYear(targetDate.getFullYear() + 4);
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 1460,
-    hours: 12,
-    minutes: 30
-  });
-
-  useEffect(() => {
-    const calculateTime = () => {
-      const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((difference / 1000 / 60) % 60);
-        setTimeLeft({ days, hours, minutes });
-      }
-    };
-    calculateTime();
-    const interval = setInterval(calculateTime, 60000);
-    return () => clearInterval(interval);
-  }, []);
-
+export function Hero({ personal }) {
   return (
     <section className="hero-section" id="hero">
       <div className="container">
@@ -36,14 +10,14 @@ export function Hero({ personal, onOpenGift }) {
           <div className="hero-text-col">
             <div className="hero-status-pill">
               <span className="hero-status-dot"></span>
-              <span>{personal.statusLabel}</span>
+              <span>{personal?.statusLabel || "MBBS JOURNEY · IN PROGRESS"}</span>
             </div>
 
-            <h1 className="hero-title">{personal.fullName}</h1>
-            <div className="hero-tagline">{personal.title}</div>
+            <h1 className="hero-title">{personal?.fullName || "Samiha Bushra"}</h1>
+            <div className="hero-tagline">{personal?.title || "Future Physician in the Making ♡"}</div>
 
             <p className="hero-intro">
-              "{personal.shortBio}"
+              "{personal?.shortBio || "Healing lives through science and empathy; capturing the quiet poetry of life through sketches and colors."}"
             </p>
 
             <div className="hero-buttons">
@@ -56,49 +30,36 @@ export function Hero({ personal, onOpenGift }) {
                 <span>A Little About Me</span>
               </a>
             </div>
-
-            {/* 4-Year Milestone Progress Strip */}
-            <div className="hero-countdown-strip">
-              <div className="countdown-icon-wrap">
-                <GraduationCap size={20} />
-              </div>
-              <div className="countdown-text-wrap">
-                <small>The Path to Graduation</small>
-                <span>~{timeLeft.days} Days · 4 Academic Years Ahead</span>
-              </div>
-            </div>
           </div>
 
-          {/* Right Portrait Column */}
+          {/* Right Portrait Column — Designed Specially for Transparent Background Cut-out Portrait */}
           <div className="hero-portrait-col">
-            <div className="portrait-frame-wrapper">
-              <div className="portrait-frame-backdrop"></div>
-              
-              <div className="portrait-frame-main">
+            <div className="transparent-portrait-stage">
+              {/* Soft Ambient Pedestal Glow behind the cutout portrait */}
+              <div className="portrait-ambient-aura"></div>
+              <div className="portrait-ambient-ring"></div>
+
+              {/* Cut-out / Transparent Background Portrait */}
+              <div className="cutout-img-wrapper">
                 <img
-                  src={personal.avatar}
-                  alt="Samiha Bushra - Medical Student"
+                  src={personal?.avatar || "/images/avatar.jpg"}
+                  alt={personal?.fullName || "Samiha Bushra"}
+                  className="cutout-portrait-img"
                   loading="eager"
                 />
               </div>
 
-              {/* Delicate Botanical / Floating Flower Accent */}
+              {/* Floating Flower Accent */}
               <span className="floating-flower-accent">🌸</span>
 
-              {/* Handwritten note annotation */}
+              {/* Handwritten Note Annotation */}
               <div className="handwritten-badge">
-                {personal.handwrittenAnnotation}
+                {personal?.handwrittenAnnotation || "One day, Dr. Samiha ♡"}
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Understated Scroll Indicator */}
-      <a href="#about" className="hero-scroll-indicator">
-        <span>Scroll to explore</span>
-        <ArrowDown size={14} />
-      </a>
     </section>
   );
 }

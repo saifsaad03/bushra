@@ -1,18 +1,24 @@
 import React from 'react';
-import { Microscope, HeartHandshake, Palette, Sparkles, CheckCircle } from 'lucide-react';
+import { Microscope, HeartHandshake, Scissors, Sparkles, Languages, CheckCircle } from 'lucide-react';
 
-export function Skills({ skills }) {
+export function Skills({ skills, languages }) {
   const getIcon = (iconName) => {
     switch (iconName) {
       case 'Microscope':
         return <Microscope size={22} />;
       case 'HeartHandshake':
         return <HeartHandshake size={22} />;
-      case 'Palette':
-        return <Palette size={22} />;
+      case 'Scissors':
+        return <Scissors size={22} />;
       default:
         return <Sparkles size={22} />;
     }
+  };
+
+  const getLanguageFlag = (name) => {
+    if (name.includes('Bangla')) return '🇧🇩';
+    if (name.includes('English')) return '🇬🇧';
+    return '🇮🇳';
   };
 
   return (
@@ -21,9 +27,10 @@ export function Skills({ skills }) {
         <div className="section-header">
           <span className="section-label">Capabilities</span>
           <h2 className="section-title">{skills?.heading || "Skills & Competencies"}</h2>
-          <p className="section-subtitle">{skills?.supportingLine || "Medical science, bedside empathy, and fine arts."}</p>
+          <p className="section-subtitle">{skills?.supportingLine || "Medical science, bedside empathy, and fine craftsmanship."}</p>
         </div>
 
+        {/* 4 Pillars of Competencies */}
         <div className="skills-card-grid">
           {(skills?.categories || []).map((cat, idx) => (
             <div key={idx} className="skill-cat-card">
@@ -47,6 +54,42 @@ export function Skills({ skills }) {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Languages Proficiency Section (Bangla 100%, English 80%, Hindi 70%) */}
+        <div className="languages-proficiency-block">
+          <div className="languages-header">
+            <div className="languages-icon-wrap">
+              <Languages size={22} />
+            </div>
+            <div>
+              <h3>Language Fluency</h3>
+              <p>Communication & multilingual ease in patient care and global learning</p>
+            </div>
+          </div>
+
+          <div className="languages-grid">
+            {(languages || []).map((lang, idx) => (
+              <div key={idx} className="language-bar-card">
+                <div className="language-bar-top">
+                  <div className="language-name-side">
+                    <span className="language-flag">{getLanguageFlag(lang.name)}</span>
+                    <strong>{lang.name}</strong>
+                  </div>
+                  <span className="language-percent-text">{lang.percent}%</span>
+                </div>
+
+                <div className="language-track">
+                  <div
+                    className="language-fill"
+                    style={{ width: `${lang.percent}%` }}
+                  />
+                </div>
+
+                <span className="language-level-sub">{lang.level}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

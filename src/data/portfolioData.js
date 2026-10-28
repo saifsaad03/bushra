@@ -10,11 +10,41 @@ export const initialPortfolioData = {
     shortBio: "Healing lives through science and empathy; capturing the quiet poetry of life through sketches and colors. Learning to care, one chapter at a time.",
     statusLabel: "MBBS JOURNEY · IN PROGRESS",
     handwrittenAnnotation: "One day, Dr. Samiha ♡",
+    // Cut-out portrait (works best without background / PNG)
     avatar: "/images/avatar.jpg",
     bannerImage: "/assets/banner.jpg",
-    bannerCaption: "Where Medicine Meets Art 🩺🎨 · The Studio of a Future Healer",
+    bannerCaption: "Where Medicine Meets Art 🩺🎨 · Studio of a Future Healer",
     quote: "Art teaches the eyes to observe; medicine teaches the heart to heal.",
   },
+
+  // Contact Links (Facebook, Instagram, Gmail, WhatsApp)
+  socials: {
+    facebook: "https://facebook.com",
+    instagram: "https://instagram.com",
+    email: "samihabushra@gmail.com",
+    whatsapp: "https://wa.me/8801700000000"
+  },
+
+  // Medical Interests & Future Aspirations
+  interests: [
+    { name: "Internal Medicine", icon: "Stethoscope", desc: "Diagnostic complexity & holistic patient care" },
+    { name: "Gynaecology & Obstetrics", icon: "Heart", desc: "Women's reproductive health & compassionate maternity" },
+    { name: "Neonatology & Newborn Specialist", icon: "Baby", desc: "Protecting and caring for fragile new lives" }
+  ],
+
+  // Work Experience
+  workExperience: {
+    title: "Clinical & Work Experience",
+    status: "Nothing yet — Ready to explore! 🩺✨",
+    note: "Currently dedicating full focus to mastering pre-clinical sciences (Phase I & II). Deeply eager and excited for upcoming hospital ward clerkships and patient interactions."
+  },
+
+  // Languages with exact percentage progress
+  languages: [
+    { name: "Bangla (বাংলা)", percent: 100, level: "Native / First Language" },
+    { name: "English", percent: 80, level: "Professional & Medical Working Proficiency" },
+    { name: "Hindi (हिंदी)", percent: 70, level: "Conversational & Listening Fluency" }
+  ],
 
   // Medical Journey Visual Progress (100% / 5 Years = 20% per year)
   journey: {
@@ -33,37 +63,41 @@ export const initialPortfolioData = {
     ]
   },
 
-  // Her Art Studio (Glimpses of the Journey - Autosliding + Clickable Showcase)
-  artworks: [
+  // "My Habijabi" — Playing Card Deck Showcase of her Artworks
+  habijabi: [
     {
       id: 1,
-      title: "The Anatomy of a Heart in Bloom",
+      title: "Anatomy of a Heart in Bloom",
       medium: "Watercolor & Fine-line Ink",
       year: "2026",
       image: "/images/medical_flatlay.jpg",
       description: "Anatomical ventricles intertwined with soft blush peonies and wild eucalyptus. Dedicated to every heartbeat that fights to survive.",
-      category: "Medical Art"
+      category: "Medical Art",
+      tag: "Habijabi #01"
     },
     {
       id: 2,
-      title: "Late Night Anatomy Notes & Cappuccino",
+      title: "Late Night Anatomy & Cappuccino",
       medium: "Pastel Gouache & Digital Wash",
       year: "2026",
       image: "/images/avatar.jpg",
       description: "Capturing the serene solitude of 2:00 AM study sessions, memorizing cranial nerves surrounded by warm amber desk light.",
-      category: "Study Journal"
+      category: "Study Journal",
+      tag: "Habijabi #02"
     },
     {
       id: 3,
-      title: "A Stethoscope Waiting for its Calling",
+      title: "Stethoscope Waiting for Calling",
       medium: "Soft Acrylic & Pencil on Canvas",
       year: "2025",
       image: "/images/scrubs.jpg",
       description: "A rose gold Littmann stethoscope resting quietly on folded lilac scrubs beside fresh baby's breath blossoms.",
-      category: "Still Life"
+      category: "Still Life",
+      tag: "Habijabi #03"
     }
   ],
 
+  // A Little About Me (NO IMAGE)
   about: {
     heading: "A Little About Me",
     supportingLine: "Medical student by day, sketch artist by heart.",
@@ -76,6 +110,12 @@ export const initialPortfolioData = {
       { label: "Creative Passions", value: "Medical Illustrations, Botanical Watercolors" },
       { label: "Core Values", value: "Kindness, Curiosity & Quiet Resilience" },
       { label: "Studio Comfort", value: "Rainy afternoons, acoustic playlists & herbal tea" }
+    ],
+    hobbies: [
+      { name: "Textile Art & Embroidery", desc: "হাতের কাজ ও সূচিকর্ম (delicate floral needlework & thread craft)", icon: "Scissors" },
+      { name: "Medical Illustration", desc: "Anatomy sketches & visual histology diagrams", icon: "Palette" },
+      { name: "Comfort Reading", desc: "Memoirs, neuro-essays & soft prose", icon: "BookOpen" },
+      { name: "Coffee & Tea Brewing", desc: "Brewing warm lattes during study sessions", icon: "Coffee" }
     ]
   },
 
@@ -114,10 +154,10 @@ export const initialPortfolioData = {
     ]
   },
 
-  // Skills & Clinical Competencies
+  // Skills & Clinical Competencies (Includes Textile Art, Embroidery, Handcrafts)
   skills: {
     heading: "Skills & Competencies",
-    supportingLine: "Medical knowledge, clinical touch, and artistic vision blended together.",
+    supportingLine: "Medical knowledge, clinical touch, and artistic craftsmanship blended together.",
     categories: [
       {
         name: "Medical & Pre-Clinical",
@@ -130,7 +170,7 @@ export const initialPortfolioData = {
         ]
       },
       {
-        name: "Clinical & Practical Touch",
+        name: "Clinical & Bedside Touch",
         icon: "HeartHandshake",
         items: [
           { name: "Vital Signs & Blood Pressure", level: "Trained" },
@@ -140,13 +180,13 @@ export const initialPortfolioData = {
         ]
       },
       {
-        name: "Artistic & Creative Vision",
-        icon: "Palette",
+        name: "Craftsmanship & Fine Arts",
+        icon: "Scissors",
         items: [
-          { name: "Medical & Anatomical Illustration", level: "Passionate" },
-          { name: "Botanical Watercolor Painting", level: "Advanced" },
-          { name: "Visual Study Guides & Infographics", level: "Creative" },
-          { name: "Fine-Line Ink Sketching", level: "Expressive" }
+          { name: "Textile Art & Embroidery", level: "Passionate" },
+          { name: "Handcrafts & Design (হাতের কাজ)", level: "Skilled" },
+          { name: "Medical & Anatomical Illustration", level: "Creative" },
+          { name: "Botanical Watercolor Painting", level: "Advanced" }
         ]
       },
       {
@@ -162,7 +202,7 @@ export const initialPortfolioData = {
     ]
   },
 
-  // A Gentle Glimpse (Redesigned Scrapbook & Personal Corner)
+  // A Gentle Glimpse (Personal Corner)
   personalCorner: {
     heading: "A Gentle Glimpse",
     supportingLine: "Little comforts, favorite petals, and quiet inspirations that make me, me.",

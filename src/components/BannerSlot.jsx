@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Palette, Heart, Image as ImageIcon } from 'lucide-react';
+import { Palette, Image as ImageIcon } from 'lucide-react';
 
 export function BannerSlot({ personal }) {
   const [imgError, setImgError] = useState(false);
@@ -13,14 +13,14 @@ export function BannerSlot({ personal }) {
             <div className="banner-image-wrapper">
               <img
                 src={bannerSrc}
-                alt={personal.bannerCaption || "Samiha Bushra Banner"}
+                alt={personal?.bannerCaption || "Samiha Bushra Banner"}
                 onError={() => setImgError(true)}
                 className="banner-img"
               />
               <div className="banner-overlay-gradient"></div>
               <div className="banner-caption-pill">
                 <Palette size={14} color="#E88FA4" />
-                <span>{personal.bannerCaption || "Where Medicine Meets Art 🩺🎨"}</span>
+                <span>{personal?.bannerCaption || "Where Medicine Meets Art 🩺🎨 · Studio of a Future Healer"}</span>
               </div>
             </div>
           ) : (

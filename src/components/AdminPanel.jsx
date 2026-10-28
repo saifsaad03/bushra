@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Lock, Unlock, Palette, Activity, Edit3, Plus, Trash2, Check, CheckCircle2 } from 'lucide-react';
+import { X, Lock, Unlock, Palette, Activity, Edit3, MessageCircle, Plus, Trash2, Check, CheckCircle2 } from 'lucide-react';
 import { savePortfolioData } from '../services/storageService';
 
 export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
@@ -19,7 +19,8 @@ export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
     year: '2026',
     category: 'Medical Art',
     description: '',
-    image: ''
+    image: '',
+    tag: 'My Habijabi'
   });
 
   useEffect(() => {
@@ -61,8 +62,13 @@ export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
       ...newArt
     };
 
-    const updatedArtworks = [artworkItem, ...(formData.artworks || [])];
-    const updated = { ...formData, artworks: updatedArtworks };
+    const currentList = formData.habijabi || formData.artworks || [];
+    const updatedList = [artworkItem, ...currentList];
+    const updated = {
+      ...formData,
+      habijabi: updatedList,
+      artworks: updatedList
+    };
     setFormData(updated);
     onUpdateData(updated);
 
@@ -73,24 +79,32 @@ export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
       year: '2026',
       category: 'Medical Art',
       description: '',
-      image: ''
+      image: '',
+      tag: 'My Habijabi'
     });
   };
 
   const handleDeleteArtwork = (id) => {
-    const updatedArtworks = (formData.artworks || []).filter((a) => a.id !== id);
-    const updated = { ...formData, artworks: updatedArtworks };
+    const currentList = formData.habijabi || formData.artworks || [];
+    const updatedList = currentList.filter((a) => a.id !== id);
+    const updated = {
+      ...formData,
+      habijabi: updatedList,
+      artworks: updatedList
+    };
     setFormData(updated);
     onUpdateData(updated);
   };
 
   const handleSaveAll = async () => {
-    setSaveStatus({ state: 'saving', message: 'Saving...' });
+    setSaveStatus({ state: 'saving', message: 'Publishing...' });
     await savePortfolioData(formData);
     onUpdateData(formData);
     setSaveStatus({ state: 'success', message: 'Published Live Successfully!' });
     setTimeout(() => setSaveStatus({ state: 'idle', message: '' }), 4000);
   };
+
+  const habijabiItems = formData.habijabi || formData.artworks || [];
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
@@ -174,14 +188,14 @@ export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
               </div>
             )}
 
-            {/* Clean Tab Navigation (No DB clutter) */}
+            {/* Clean Tab Navigation */}
             <div className="admin-tabs-nav">
               <button
                 className={`admin-tab-btn ${activeTab === 'artworks' ? 'active' : ''}`}
                 onClick={() => setActiveTab('artworks')}
               >
                 <Palette size={16} />
-                <span>Artworks ({formData.artworks?.length || 0})</span>
+                <span>My Habijabi ({habijabiItems.length})</span>
               </button>
 
               <button
@@ -199,14 +213,22 @@ export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
                 <Edit3 size={16} />
                 <span>Text & Banner</span>
               </button>
+
+              <button
+                className={`admin-tab-btn ${activeTab === 'socials' ? 'active' : ''}`}
+                onClick={() => setActiveTab('socials')}
+              >
+                <MessageCircle size={16} />
+                <span>Social Links</span>
+              </button>
             </div>
 
-            {/* Tab 1: Artwork Upload & Management */}
+            {/* Tab 1: Artwork / Habijabi Upload */}
             {activeTab === 'artworks' && (
               <div className="admin-tab-content">
                 <div className="admin-subcard">
-                  <h4>Upload New Artwork</h4>
-                  <p className="admin-hint">Select a photo from your device to add it immediately to the studio auto-slider.</p>
+                  <h4>Upload to "My Habijabi"</h4>
+                  <p className="admin-hint">Select a photo from your device to add it immediately to the playing card deck slider.</p>
 
                   <div className="admin-form-grid">
                     <div>
@@ -223,7 +245,7 @@ export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
                       <label>Medium</label>
                       <input
                         type="text"
-                        placeholder="e.g. Watercolor & Micron Pen on Paper"
+                        placeholder="e.g. Watercolor & Micron Pen"
                         value={newArt.medium}
                         onChange={(e) => setNewArt({ ...newArt, medium: e.target.value })}
                       />
@@ -239,6 +261,7 @@ export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
                         <option value="Botanical Watercolor">Botanical Watercolor</option>
                         <option value="Study Journal">Study Journal</option>
                         <option value="Pencil Sketch">Pencil Sketch</option>
+                        <option value="Embroidery & Craft">Embroidery & Craft</option>
                         <option value="Still Life">Still Life</option>
                       </select>
                     </div>
@@ -284,15 +307,15 @@ export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
                   <div style={{ marginTop: '1rem', textAlign: 'right' }}>
                     <button className="btn-primary" onClick={handleAddArtwork}>
                       <Plus size={16} />
-                      <span>Add to Gallery Auto-Slider</span>
+                      <span>Add to My Habijabi</span>
                     </button>
                   </div>
                 </div>
 
                 {/* Existing Artworks List */}
-                <h4 style={{ marginTop: '1.5rem', marginBottom: '0.75rem' }}>Current Artworks in Gallery</h4>
+                <h4 style={{ marginTop: '1.5rem', marginBottom: '0.75rem' }}>Current Habijabi Cards</h4>
                 <div className="admin-art-list">
-                  {(formData.artworks || []).map((art) => (
+                  {habijabiItems.map((art) => (
                     <div key={art.id} className="admin-art-item">
                       <img src={art.image} alt={art.title} />
                       <div className="admin-art-item-info">
@@ -502,6 +525,86 @@ export function AdminPanel({ isOpen, onClose, data, onUpdateData }) {
                           onUpdateData(updated);
                         }}
                         placeholder="Where Medicine Meets Art 🩺🎨"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Tab 4: Social Links (Facebook, Instagram, WhatsApp, Email) */}
+            {activeTab === 'socials' && (
+              <div className="admin-tab-content">
+                <div className="admin-subcard">
+                  <h4>Contact & Social Profile Links</h4>
+                  <p className="admin-hint">Update the links that visitors can use to reach out at the bottom of the page.</p>
+
+                  <div className="admin-form-grid">
+                    <div>
+                      <label>Facebook Profile / Page URL</label>
+                      <input
+                        type="text"
+                        placeholder="https://facebook.com/your-profile"
+                        value={formData.socials?.facebook || ''}
+                        onChange={(e) => {
+                          const updated = {
+                            ...formData,
+                            socials: { ...formData.socials, facebook: e.target.value }
+                          };
+                          setFormData(updated);
+                          onUpdateData(updated);
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label>Instagram URL</label>
+                      <input
+                        type="text"
+                        placeholder="https://instagram.com/your-username"
+                        value={formData.socials?.instagram || ''}
+                        onChange={(e) => {
+                          const updated = {
+                            ...formData,
+                            socials: { ...formData.socials, instagram: e.target.value }
+                          };
+                          setFormData(updated);
+                          onUpdateData(updated);
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label>WhatsApp Number / URL</label>
+                      <input
+                        type="text"
+                        placeholder="https://wa.me/8801700000000"
+                        value={formData.socials?.whatsapp || ''}
+                        onChange={(e) => {
+                          const updated = {
+                            ...formData,
+                            socials: { ...formData.socials, whatsapp: e.target.value }
+                          };
+                          setFormData(updated);
+                          onUpdateData(updated);
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label>Email Address</label>
+                      <input
+                        type="email"
+                        placeholder="samihabushra@gmail.com"
+                        value={formData.socials?.email || ''}
+                        onChange={(e) => {
+                          const updated = {
+                            ...formData,
+                            socials: { ...formData.socials, email: e.target.value }
+                          };
+                          setFormData(updated);
+                          onUpdateData(updated);
+                        }}
                       />
                     </div>
                   </div>

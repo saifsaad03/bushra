@@ -14,10 +14,10 @@ export function Hero({ personal }) {
             </div>
 
             <h1 className="hero-title">{personal?.fullName || "Samiha Bushra"}</h1>
-            <div className="hero-tagline">{personal?.title || "Find light in the beautiful sea i choose to be happy♡"}</div>
+            <div className="hero-tagline">{personal?.title || "Find light in the beautiful sea I choose to be happy♡"}</div>
 
             <p className="hero-intro">
-              "{personal?.shortBio || "Healing lives through science and empathy; capturing the quiet poetry of life through sketches and colors."}"
+              "{personal?.shortBio || "Icche moto custom korte hobe..."}"
             </p>
 
             <div className="hero-buttons">
@@ -52,10 +52,10 @@ export function Hero({ personal }) {
               {/* Floating Flower Accent */}
               <span className="floating-flower-accent">🌸</span>
 
-              {/* Handwritten Note Annotation */}
+              {/* Handwritten Note Annotation 
               <div className="handwritten-badge">
                 {personal?.handwrittenAnnotation || "One day, Dr. Samiha ♡"}
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>

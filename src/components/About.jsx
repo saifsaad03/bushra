@@ -1,16 +1,9 @@
 import React from 'react';
-import { Scissors, Palette, BookOpen, Coffee, Stethoscope, Heart, Baby, Compass, CheckCircle, Music, Sprout } from 'lucide-react';
+import { Scissors, Palette, BookOpen, Coffee, Stethoscope, Heart, Baby, Compass, CheckCircle } from 'lucide-react';
 
 export function About({ about, personal, interests, workExperience }) {
   const getHobbyIcon = (iconName) => {
     switch (iconName) {
-      case 'Music':
-        return <Music size={18} color="var(--accent-primary)" />;
-      case 'Sprout':
-      case 'Garden':
-        return <Sprout size={18} color="#5B8A61" />;
-      case 'Heart':
-        return <Heart size={18} color="#E88FA4" />;
       case 'Scissors':
         return <Scissors size={18} />;
       case 'Palette':
@@ -18,7 +11,7 @@ export function About({ about, personal, interests, workExperience }) {
       case 'Coffee':
         return <Coffee size={18} />;
       default:
-        return <Heart size={18} color="var(--accent-primary)" />;
+        return <BookOpen size={18} />;
     }
   };
 
@@ -40,7 +33,7 @@ export function About({ about, personal, interests, workExperience }) {
         {/* Editorial Text Content (No Image as requested!) */}
         <div className="about-editorial-wrap">
           <div className="about-main-text-card">
-            <h3>Beyond the Stethoscope & Scrubs</h3>
+            <h3>Beyond the Stetho...</h3>
             <div className="about-paragraphs">
               {(about?.introParagraphs || []).map((p, idx) => (
                 <p key={idx}>{p}</p>
@@ -91,7 +84,7 @@ export function About({ about, personal, interests, workExperience }) {
                 {workExperience?.status || "Nothing yet — Ready to explore! 🩺✨"}
               </div>
               <p className="experience-desc-text">
-                {workExperience?.note || "Currently dedicating full focus to mastering pre-clinical sciences. Deeply eager and excited for upcoming hospital ward clerkships and patient interactions."}
+                {workExperience?.note || "Currently dedicating full focus to mastering pre-clinical foundations. Looking forward to upcoming ward clerkships and patient interactions."}
               </p>
             </div>
 

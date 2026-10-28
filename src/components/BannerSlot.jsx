@@ -20,7 +20,7 @@ export function BannerSlot({ personal }) {
               <div className="banner-overlay-gradient"></div>
               <div className="banner-caption-pill">
                 <Palette size={14} color="#E88FA4" />
-                <span>{personal?.bannerCaption || "Where Medicine Meets Art 🩺🎨 · Studio of a Future Healer"}</span>
+                <span>{personal?.bannerCaption || "Assalamu Alaykum"}</span>
               </div>
             </div>
           ) : (

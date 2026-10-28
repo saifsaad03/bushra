@@ -19,8 +19,8 @@ export const initialPortfolioData = {
 
   // Contact Links (Facebook, Instagram, Gmail, WhatsApp)
   socials: {
-    facebook: "https://facebook.com/samiha.bushra.754",
-    instagram: "https://instagram.com/samiha.bushra.754",
+    facebook: "https://www.facebook.com/samiha.bushra.754",
+    instagram: "https://www.instagram.com/samiha.bushra.754?vrfl=dGNlajlvdmpsM2Nl",
     email: "samihabushra@gmail.com",
     whatsapp: "https://wa.me/8801700000000"
   },

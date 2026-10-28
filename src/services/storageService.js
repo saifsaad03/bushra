@@ -1,7 +1,7 @@
 import { initialPortfolioData } from '../data/portfolioData';
 import { getSupabaseClient } from './supabaseClient';
 
-const LOCAL_STORAGE_KEY = 'samiha_portfolio_data_v2';
+const LOCAL_STORAGE_KEY = 'samiha_portfolio_data_v3';
 const TABLE_NAME = 'portfolio_config';
 const ROW_ID = 'samiha';
 

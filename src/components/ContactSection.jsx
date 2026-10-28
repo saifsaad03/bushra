@@ -20,7 +20,7 @@ export function ContactSection({ socials, personal }) {
     {
       name: "Facebook",
       icon: <FacebookIcon />,
-      url: socials?.facebook || "https://facebook.com",
+      url: socials?.facebook || "https://www.facebook.com/samiha.bushra.754",
       label: "Connect on Facebook",
       color: "#1877F2",
       bgLight: "rgba(24, 119, 242, 0.08)"
@@ -28,8 +28,8 @@ export function ContactSection({ socials, personal }) {
     {
       name: "Instagram",
       icon: <InstagramIcon />,
-      url: socials?.instagram || "https://instagram.com",
-      label: "@samihabushra",
+      url: socials?.instagram || "https://www.instagram.com/samiha.bushra.754?vrfl=dGNlajlvdmpsM2Nl",
+      label: "@samiha.bushra.754",
       color: "#E1306C",
       bgLight: "rgba(225, 48, 108, 0.08)"
     },

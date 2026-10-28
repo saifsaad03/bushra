@@ -28,7 +28,7 @@ export function Footer({ personal }) {
         </div>
 
         <div className="footer-credits">
-          A digital keepsake & portfolio celebrating the journey to becoming a physician.
+          A digital keepsake & portfolio
         </div>
       </div>
     </footer>

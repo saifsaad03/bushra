@@ -59,7 +59,7 @@ export function HabijabiCards({ items, onOpenAdminUpload }) {
           </span>
           <h2 className="section-title">My Habijabi ♡</h2>
           <p className="section-subtitle">
-            Anatomical sketches, botanical watercolors, and little creative experiments between study hours.
+            My Akibuki ,HandyCraft
           </p>
         </div>
 

@@ -6,9 +6,9 @@ export const initialPortfolioData = {
   personal: {
     fullName: "Samiha Bushra",
     nickname: "Bushra",
-    title: "Future Physician in the Making ♡ & Artist at Heart",
-    shortBio: "Healing lives through science and empathy; capturing the quiet poetry of life through sketches and colors. Learning to care, one chapter at a time.",
-    statusLabel: "MBBS JOURNEY · IN PROGRESS",
+    title: "Find light in the beautiful sea i choose to be happy♡",
+    shortBio: "Healing lives through science and empathy; capturing the quiet poetry of life through sketches and colors.",
+    statusLabel: "IN PROGRESS",
     handwrittenAnnotation: "One day, Dr. Samiha ♡",
     // Cut-out portrait (works best without background / PNG)
     avatar: "/images/avatar.jpg",
@@ -19,8 +19,8 @@ export const initialPortfolioData = {
 
   // Contact Links (Facebook, Instagram, Gmail, WhatsApp)
   socials: {
-    facebook: "https://facebook.com",
-    instagram: "https://instagram.com",
+    facebook: "https://facebook.com/samiha.bushra.754",
+    instagram: "https://instagram.com/samiha.bushra.754",
     email: "samihabushra@gmail.com",
     whatsapp: "https://wa.me/8801700000000"
   },
@@ -36,7 +36,7 @@ export const initialPortfolioData = {
   workExperience: {
     title: "Clinical & Work Experience",
     status: "Nothing yet — Ready to explore! 🩺✨",
-    note: "Currently dedicating full focus to mastering pre-clinical sciences (Phase I & II). Deeply eager and excited for upcoming hospital ward clerkships and patient interactions."
+    note: "Currently dedicating full focus to mastering pre-clinical sciences. Deeply eager and excited for upcoming hospital ward clerkships and patient interactions."
   },
 
   // Languages with exact percentage progress
@@ -48,8 +48,8 @@ export const initialPortfolioData = {
 
   // Medical Journey Visual Progress (100% / 5 Years = 20% per year)
   journey: {
-    heading: "My Medical Journey",
-    subheading: "The Journey to Dr. Samiha",
+    heading: "Me at Now",
+    subheading: "Roadmap",
     totalYears: 5,
     currentPercentage: 20, // 20% = 1st year done, 2nd year in progress
     currentYearLabel: "Year 02 · Pre-Clinical to Clinical Transition",
@@ -107,15 +107,14 @@ export const initialPortfolioData = {
     ],
     details: [
       { label: "Current Focus", value: "2nd Year MBBS · Clinical Correlations" },
-      { label: "Creative Passions", value: "Medical Illustrations, Botanical Watercolors" },
+      { label: "Creative Passions", value: "Medical Illustrations, Calligraphy" },
       { label: "Core Values", value: "Kindness, Curiosity & Quiet Resilience" },
-      { label: "Studio Comfort", value: "Rainy afternoons, acoustic playlists & herbal tea" }
+      { label: "Studio Comfort", value: "Rainy afternoons at a beach , Green Mountain" }
     ],
     hobbies: [
-      { name: "Textile Art & Embroidery", desc: "হাতের কাজ ও সূচিকর্ম (delicate floral needlework & thread craft)", icon: "Scissors" },
-      { name: "Medical Illustration", desc: "Anatomy sketches & visual histology diagrams", icon: "Palette" },
-      { name: "Comfort Reading", desc: "Memoirs, neuro-essays & soft prose", icon: "BookOpen" },
-      { name: "Coffee & Tea Brewing", desc: "Brewing warm lattes during study sessions", icon: "Coffee" }
+      { name: "Goon Goon Jamming of Nasheed", desc: "Soft hums & soothing melodious tunes that bring peace to the soul", icon: "Music" },
+      { name: "Gardening", desc: "Nurturing green plants, flowers & fresh leaves", icon: "Sprout" },
+      { name: "Petting Cat & Birds", desc: "Gentle warmth with feline friends and chirping little birds", icon: "Heart" }
     ]
   },
 

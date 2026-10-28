@@ -10,11 +10,11 @@ export function Hero({ personal }) {
           <div className="hero-text-col">
             <div className="hero-status-pill">
               <span className="hero-status-dot"></span>
-              <span>{personal?.statusLabel || "MBBS JOURNEY · IN PROGRESS"}</span>
+              <span>{personal?.statusLabel || "IN PROGRESS"}</span>
             </div>
 
             <h1 className="hero-title">{personal?.fullName || "Samiha Bushra"}</h1>
-            <div className="hero-tagline">{personal?.title || "Future Physician in the Making ♡"}</div>
+            <div className="hero-tagline">{personal?.title || "Find light in the beautiful sea i choose to be happy♡"}</div>
 
             <p className="hero-intro">
               "{personal?.shortBio || "Healing lives through science and empathy; capturing the quiet poetry of life through sketches and colors."}"

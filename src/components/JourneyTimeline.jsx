@@ -8,9 +8,8 @@ export function JourneyTimeline({ journey }) {
     <section className="journey-section" id="journey">
       <div className="container">
         <div className="section-header">
-          <span className="section-label">Medical Roadmap</span>
-          <h2 className="section-title">{journey.heading}</h2>
-          <p className="section-subtitle">{journey.subheading} · 5-Year Curriculum</p>
+          <span className="section-label">Roadmap</span>
+          <h2 className="section-title">{journey?.heading || "Me at Now"}</h2>
         </div>
 
         {/* Visual Progress Dashboard Card */}
@@ -67,12 +66,6 @@ export function JourneyTimeline({ journey }) {
                 </div>
               );
             })}
-          </div>
-
-          {/* Understated bottom reflection */}
-          <div className="journey-bottom-quote">
-            <Activity size={16} color="var(--accent-primary)" />
-            <span>“Every hour in the library and lab brings me one step closer to healing lives.”</span>
           </div>
         </div>
       </div>

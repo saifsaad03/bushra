@@ -57,9 +57,6 @@ export function ContactSection({ socials, personal }) {
         <div className="section-header">
           <span className="section-label">Connect & Say Hello</span>
           <h2 className="section-title">Get in Touch</h2>
-          <p className="section-subtitle">
-            Whether for medical discussions, art appreciation, or a warm conversation.
-          </p>
         </div>
 
         <div className="contact-grid">
